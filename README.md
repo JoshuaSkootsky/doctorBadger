@@ -1,67 +1,47 @@
-# Boilermaker
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-_Good things come in pairs_
+# doctorBadger
 
-Looking to mix up a backend with `express`/`sequelize` and a frontend with
-`react`/`redux`? That's `boilermaker`!
+## Joshua Skootsky, March 2020
 
-Follow along with the boilerplate workshop to make your own! This canonical
-version can serve as a reference, or a starting point. For an in depth
-discussion into the code that makes up this repository, see the
-[Boilermaker Guided Tour][boilermaker-yt]
+# To get started on development:
 
-[boilermaker-yt]: https://www.youtube.com/playlist?list=PLx0iOsdUOUmn7D5XL4mRUftn8hvAJGs8H
+For local development with postgres and the createdb util:
+
+```
+createdb doctorBadger
+createdb doctorBadger-test
+
+```
+
+Then run `npm i`
+
+Run it on localhost with `npm run start-dev`
+
+### Built with Express, Sequelize, Postgres, React, and Redux
+
+This project uses Node.js and Express for the server, Sequelize as an ORM to talk to a Postgres database, React for display components, and Redux for managing state on the front end.
 
 ## Setup
 
-To use this as boilerplate, you'll need to take the following steps:
-
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
-* Run the following commands:
+For local development with postgres and the createdb util:
 
 ```
-git remote add boilermaker https://github.com/FullstackAcademy/boilermaker.git
-git fetch boilermaker
-git merge boilermaker/master
+createdb doctorBadger
+createdb doctorBadger-test
 ```
 
-Why did we do that? Because every once in a while, `boilermaker` may
-be updated with additional features or bug fixes, and you can easily
-get those changes from now on by entering:
+- By default, running `npm test` will use `doctorBadger-test`, while
+  regular development uses the `doctorBadger` database.
 
-```
-git fetch boilermaker
-git merge boilermaker/master
-```
-
-## Customize
-
-Now that you've got the code, follow these steps to get acclimated:
-
-* Update project name and description in `package.json` and
-  `.travis.yml` files
-* `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-
-```
-export MY_APP_NAME=boilermaker
-createdb $MY_APP_NAME
-createdb $MY_APP_NAME-test
-```
-
-* By default, running `npm test` will use `boilermaker-test`, while
-  regular development uses `boilermaker`
-* Create a file called `secrets.js` in the project root
-  * This file is listed in `.gitignore`, and will _only_ be required
+- Create a file called `secrets.js` in the project root
+  - This file is listed in `.gitignore`, and will _only_ be required
     in your _development_ environment
-  * Its purpose is to attach the secret environment variables that you
+  - Its purpose is to attach the secret environment variables that you
     will use while developing
-  * However, it's **very** important that you **not** push it to
+  - However, it's **very** important that you **not** push it to
     Github! Otherwise, _prying eyes_ will find your secret API keys!
-  * It might look like this:
+  - It might look like this:
 
 ```
 process.env.GOOGLE_CLIENT_ID = 'hush hush'
@@ -69,29 +49,34 @@ process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
 process.env.GOOGLE_CALLBACK = '/auth/google/callback'
 ```
 
+### Twelve Factor Design
+
+This project uses the [Twelve Factor App](https://12factor.net/ 'Twelve Factor App') design principles. To quote the author, [Adam Wiggins](https://news.ycombinator.com/item?id=21416881 'Comment on Hacker News'):
+
+> I'm the author of 12factor (although really it is an aggregation of the work and insights from many people at Heroku). It continues to surprise and please me that this piece continues to be relevant eight years later—a virtual eternity in software/internet time.
+> Fun fact: I debated whether to call it "the Heroku way" or somesuch. Glad I went with a standalone name, feel like that allowed it to take on a life beyond that product. For example I doubt Google would have wanted a page about "Heroku Way app development on GCP" in their documentation. :-)
+
+We deployed to Heroku, but the same DevOps principles would have allowed us to deploy to AWS, Google Cloud, Microsoft Azure, or another cloud computing service.
+
 ### OAuth
 
-* To use OAuth with Google, complete the steps above with a real client
+- To use OAuth with Google, complete the steps above with a real client
   ID and client secret supplied from Google
-  * You can get them from the [Google APIs dashboard][google-apis].
+  - You can get them from the [Google APIs dashboard][google-apis].
 
 [google-apis]: https://console.developers.google.com/apis/credentials
 
 ## Linting
 
-Linters are fundamental to any project. They ensure that your code
-has a consistent style, which is critical to writing readable code.
+ES Lint is integrated into the build process.
 
-Boilermaker comes with a working linter (ESLint, with
-`eslint-config-fullstack`) "out of the box." However, everyone has
-their own style, so we recommend that you and your team work out yours
-and stick to it. Any linter rule that you object to can be "turned
-off" in `.eslintrc.json`. You may also choose an entirely different
-config if you don't like ours:
+Here is the prettierrc.yml:
 
-* [Standard style guide](https://standardjs.com/)
-* [Airbnb style guide](https://github.com/airbnb/javascript)
-* [Google style guide](https://google.github.io/styleguide/jsguide.html)
+```
+singleQuote: true
+trailingComma: es5
+bracketSpacing: true
+```
 
 ## Start
 
@@ -107,8 +92,8 @@ From there, just follow your bliss.
 Ready to go world wide? Here's a guide to deployment! There are two
 supported ways to deploy in Boilermaker:
 
-* automatically, via continuous deployment with Travis.
-* "manually", from your local machine via the `deploy` script.
+- automatically, via continuous deployment with Travis.
+- "manually", from your local machine via the `deploy` script.
 
 Either way, you'll need to set up your deployment server to start.
 The steps below are also covered in the CI/CD workshop.
@@ -121,14 +106,14 @@ The steps below are also covered in the CI/CD workshop.
 
 [heroku-cli]: https://devcenter.heroku.com/articles/heroku-cli
 
-* **If you are creating a new app...**
+- **If you are creating a new app...**
 
   1.  `heroku create` or `heroku create your-app-name` if you have a
       name in mind.
   2.  `heroku addons:create heroku-postgresql:hobby-dev` to add
       ("provision") a postgres database to your heroku dyno
 
-* **If you already have a Heroku app...**
+- **If you already have a Heroku app...**
 
   1.  `heroku git:remote your-app-name` You'll need to be a
       collaborator on the app.
