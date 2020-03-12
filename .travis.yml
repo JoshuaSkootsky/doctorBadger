@@ -17,14 +17,14 @@ before_script:
 script:
   - npm test # test the code
   - npm run build-client # make the bundle
-before_deploy: # omit node_modules, since we set skip_cleanup below
-  - rm -rf node_modules
-deploy: # see README for details on these keys
-  # prevents travis from deleting the build
-  skip_cleanup: true
-  provider: heroku
-  # app should be your heroku app name; see README
-  app: doctor-badger
-  # the secure key indicates an encrypted value; see README
-  api_key:
-    secure: AsoUuD168qd0pENTRG6bXt5MChEBiJUqZjcC26ti7oGBHY73G7VMwxlcHb5ojwM6Wyec95e71afs1rkxUUc5tVEKybB5Nh11NIF3vvuJqrg9kxTDi2MSvfghiutIkFp5tlgR+x969h+4CehDfT13CYpaPsxR3o6SHQk8ZZNzqsCvTRZPXLNe3nwliq1H+NH3MRNji/tVrcMSKrlmx0h7Ql2HQN6nSv7Z6q5YlOWzDXVB/ihguu8HyBq/LEvyCPvV2dnpjNFTFkEHss45EQCVcu+SjfKxByxMyv/+JIgTaQn4NPYhCbo4EGaxk5D6UoWG7QxKRrXQ1S37mAg0lpp6s5PrE77tH1Jx200u/d7pNQejYCMGYZJhDvdRA5vMNYw80GdFgqR4BUDlVf7Cj2SH0lP5x8aKvwjavQnrDHvusme4xRmBrLcR0r1I2851e00re1E+FwxwYN9dbUu1Z7SVzs7pnB7JAtZaaW5ZirMqcnyHTfPEUeJEIxXEgPkW4ofAFNB3tM1ot9pKs60W/aM7vhcGLULfy8lgVuZ1Lo6tM6f49GIt1Xo5GxBVR+rmYPwxsmfRi5/AnsUnQIcLEU1ZELSXmj27UyEqBQeNC6nZLEyqMNa3A134SepKZEgtZfSeCbFpVT/eoeivqpC4e8tJ9VrLn8M+N27D4JxQJV+9otQ=
+# before_deploy: # omit node_modules, since we set skip_cleanup below
+#   - rm -rf node_modules
+# deploy: # see README for details on these keys
+#   # prevents travis from deleting the build
+#   skip_cleanup: true
+#   provider: heroku
+#   # app should be your heroku app name; see README
+#   app: doctor-badger
+#   # the secure key indicates an encrypted value; see README
+#   api_key:
+#     secure: AsoUuD168qd0pENTRG6bXt5MChEBiJUqZjcC26ti7oGBHY73G7VMwxlcHb5ojwM6Wyec95e71afs1rkxUUc5tVEKybB5Nh11NIF3vvuJqrg9kxTDi2MSvfghiutIkFp5tlgR+x969h+4CehDfT13CYpaPsxR3o6SHQk8ZZNzqsCvTRZPXLNe3nwliq1H+NH3MRNji/tVrcMSKrlmx0h7Ql2HQN6nSv7Z6q5YlOWzDXVB/ihguu8HyBq/LEvyCPvV2dnpjNFTFkEHss45EQCVcu+SjfKxByxMyv/+JIgTaQn4NPYhCbo4EGaxk5D6UoWG7QxKRrXQ1S37mAg0lpp6s5PrE77tH1Jx200u/d7pNQejYCMGYZJhDvdRA5vMNYw80GdFgqR4BUDlVf7Cj2SH0lP5x8aKvwjavQnrDHvusme4xRmBrLcR0r1I2851e00re1E+FwxwYN9dbUu1Z7SVzs7pnB7JAtZaaW5ZirMqcnyHTfPEUeJEIxXEgPkW4ofAFNB3tM1ot9pKs60W/aM7vhcGLULfy8lgVuZ1Lo6tM6f49GIt1Xo5GxBVR+rmYPwxsmfRi5/AnsUnQIcLEU1ZELSXmj27UyEqBQeNC6nZLEyqMNa3A134SepKZEgtZfSeCbFpVT/eoeivqpC4e8tJ9VrLn8M+N27D4JxQJV+9otQ=

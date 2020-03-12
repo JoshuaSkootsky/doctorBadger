@@ -3,6 +3,7 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import user from './user';
+import doctors from './doctors';
 
 const reducer = combineReducers({ user });
 const middleware = composeWithDevTools(
