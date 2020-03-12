@@ -87,6 +87,23 @@ If you want to run the server and/or `webpack` separately, you can also
 
 From there, just follow your bliss.
 
+## CD Made Simple on Heroku
+
+To deploy continuously off master, you don't need to tell Travis to deploy to Heroku. You can tell Heroku to watch master, and it will deploy from there.
+
+There is one caveat: you need to add a `build` script to `package.json`, or a `"heroku-postbuild"` script.
+
+In our case,
+
+```
+"scripts": {
+    "build": "webpack",
+```
+
+Does the trick, along with these configurations on Heroku's back end:
+
+![Heroku panel, Deployment](https://imgur.com/a/ItfekGG)
+
 ## Deployment
 
 Ready to go world wide? Here's a guide to deployment! There are two
