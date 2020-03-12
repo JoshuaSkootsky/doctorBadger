@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const helmet = require('helmet');
 const compression = require('compression');
 const session = require('express-session');
 const passport = require('passport');
@@ -43,6 +44,8 @@ passport.deserializeUser(async (id, done) => {
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'));
+  // add helmet
+  app.use(helmet());
 
   // body parsing middleware
   app.use(express.json());
