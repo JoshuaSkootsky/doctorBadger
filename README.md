@@ -102,7 +102,7 @@ In our case,
 
 Does the trick, along with these configurations on Heroku's back end:
 
-![Heroku panel, Deployment](https://imgur.com/a/ItfekGG)
+![Heroku panel, Deployment](https://imgur.com/37PZ6y3)
 
 ## Deployment
 
