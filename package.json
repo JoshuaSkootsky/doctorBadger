@@ -40,6 +40,10 @@
   },
   "author": "Joshua Skootsky",
   "license": "MIT",
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshuaSkootsky/doctorBadger"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "compression": "^1.7.3",
