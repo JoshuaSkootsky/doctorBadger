@@ -17,13 +17,14 @@ before_script:
 script:
   - npm test # test the code
   - npm run build-client # make the bundle
-# before_deploy: # omit node_modules, since we set skip_cleanup below
-#   - rm -rf node_modules
-# deploy: # see README for details on these keys
-#   # prevents travis from deleting the build
-#   skip_cleanup: true
-#   provider: heroku
-#   # app should be your heroku app name; see README
-#   app: doctor-badger
-#   # the secure key indicates an encrypted value; see README
-#   api_key:
+before_deploy: # omit node_modules, since we set skip_cleanup below
+  - rm -rf node_modules
+deploy: # see README for details on these keys
+  # prevents travis from deleting the build
+  skip_cleanup: true
+  provider: heroku
+  # app should be your heroku app name; see README
+  app: doctor-badger
+  # the secure key indicates an encrypted value; see README
+  api_key:
+    secure: LLpOJVoXXrZo7GtQcenldlxNkEYkoRIrILlQgdaAQfyOeXhmosYZggBf/Lxxw2fV+OagxwxaSDRTmLntmjfmr2kKF55Z0UypHjvRORQLZUNpzWTB3umTbHdxlqGv8hF3kBleNzIxd/5tz6X478i9xFAB9JY6e2ZwF3KGKQmjqh54gPGcFtm++LIWaGjn2hvH/6SG7GBWt1Vr2dIiFtwjp5nQRPblDaIJA/8ED81i0eFMW9RWCDF+lwlu0Jt+ZH4m7U6emQN8Np5VaX/GSny7ssgpsPZVZGyPhhtTeyDFGPZzkqe6BQwWa+WRFd2gfaQFmGb4PlBQuN2psRRyo0WlPXgxUol67QR6FnoTozEz7Q/70wyYaKPCggOj+QOAZ4CnBVFwCvDXQ/k99XC3QnbqF4QtitbM4vv+8gvshTX06nksNsPNyASN1RCqFvcW2uHYhFj5dEqCgDUYZHGBV9xR8Y2mmUEkNxheKcT+nLJftvXsGIc6wyPKOphK2oVpvjkyt0lsbY30W9D9e1mlZE3yKacwfvfa8IokJ0nzZK5oeLrEjBp8RUL8OsSi6PCoX91NmXLMgbur+VBOavkgUa6b/k+mjnW4VSzv7ZXOV0f3aYImXapmxsv7LTu93hYx3tL2AYOYDcgD60ZwuqH1wYLar2YdjIUgkUgApm80Z2ggTqg=
