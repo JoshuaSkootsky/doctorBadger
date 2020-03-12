@@ -45,7 +45,18 @@ const createApp = () => {
   // logging middleware
   app.use(morgan('dev'));
   // add helmet
-  app.use(helmet());
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'], // feel free to use another cdn here
+        scriptSrc: ["'self'"],
+        reportUri: '/report-violation',
+        objectSrc: ["'self'"],
+        upgradeInsecureRequests: true,
+      },
+    })
+  );
 
   // body parsing middleware
   app.use(express.json());
