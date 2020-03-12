@@ -1,14 +1,7 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "prettier", "prettier/react"],
+  "extends": ["fullstack", "prettier", "prettier/react"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "trailingComma": "all"
-      }
-    ],
-    "eqeqeq": ["error", "always"]
+    "semi": 1
   }
 }
