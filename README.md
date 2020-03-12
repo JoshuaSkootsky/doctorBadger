@@ -173,10 +173,9 @@ above has failed.
 That's it! From now on, whenever `master` is updated on GitHub, Travis
 will automatically push the app to Heroku for you.
 
-### Cody's own deploy script
+### Manual deploy off Heroku CLI
 
-Your local copy of the application can be pushed up to Heroku at will,
-using Boilermaker's handy deployment script:
+As a backup, or before you set up Continuous Delievery off master branch as above, `npm run deploy` will send the current state of master to Heroku.
 
 1.  Make sure that all your work is fully committed and merged into your
     master branch on Github.
