@@ -13,10 +13,14 @@ const getDoctors = doctors => ({ type: GET_DOCTORS, doctors });
  * THUNK CREATORS
  */
 
-export const loadDoctors = () => async dispatch => {
+export const loadDoctors = coords => async dispatch => {
   try {
     // make API call to better doctors
-    const res = await axios.get('/api/practices');
+    const res = await axios.get('/api/practices', {
+      params: {
+        coords,
+      },
+    });
     dispatch(getDoctors(res.data || initialState));
   } catch (err) {
     console.error(err, 'error GET /api/practices');

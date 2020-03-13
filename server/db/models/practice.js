@@ -7,7 +7,7 @@ const axios = require('axios');
 // Currently mocking up making an API call by reading from file
 class Practice {
   // in the future, this will have process.env.NODE_ENV === test wrapped around the test data
-  async findAll(location) {
+  async findAll(coords) {
     // '../../../practices.json';
     if (process.env.NODE_ENV === 'test') {
       return new Promise(function(resolve, reject) {
@@ -20,6 +20,11 @@ class Practice {
     // otherwise make a real API call
     try {
       const key = process.env.DOCTORS_API_KEY;
+      let location;
+      if (coords) {
+        console.log('in practice class, reading coords');
+        console.log(coords);
+      }
       const queryLocation = location ? location : '40.71%2C-74.00%2C100';
       const url =
         'https://api.betterdoctor.com/2016-03-01/practices?location=' +

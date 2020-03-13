@@ -1,19 +1,25 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { geolocated } from 'react-geolocated';
 
 import { loadDoctors } from '../store';
 
-const Doctors = ({ doctors, loadDoctors }) => {
+let Doctors = props => {
+  const doctors = props.doctors;
+  const dispatchDoctors = props.loadDoctors;
   useEffect(() => {
+    console.log('props.coords', props.coords);
+    if (props.coords) {
+      console.log('props.coords.latitude', props.coords.latitude);
+    }
     // empty array tells effect to run only once
-    loadDoctors(); // load them into redux state
-  }, []);
+    dispatchDoctors(props.coords); // load them into redux state
+  }, [props.coords]); //update on latitude changing
   // guard for - in loop to prevent prototype leaking
+
   const arr = [];
   for (const key in doctors) {
     if ({}.hasOwnProperty.call(doctors, key)) {
-      console.log(doctors[key]);
       arr[key] = doctors[key];
     }
   }
@@ -36,6 +42,26 @@ const Doctors = ({ doctors, loadDoctors }) => {
           );
         })}
       </ol>
+      {!props.isGeolocationAvailable ? (
+        <div>Your browser does not support Geolocation</div>
+      ) : !props.isGeolocationEnabled ? (
+        <div>Geolocation is not enabled</div>
+      ) : props.coords ? (
+        <table>
+          <tbody>
+            <tr>
+              <td>latitude</td>
+              <td>{props.coords.latitude}</td>
+            </tr>
+            <tr>
+              <td>longitude</td>
+              <td>{props.coords.longitude}</td>
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        <div>Getting the location data&hellip; </div>
+      )}
     </Fragment>
   );
 };
@@ -51,5 +77,12 @@ const dispatchToProps = dispatch => {
     loadDoctors: () => dispatch(loadDoctors()),
   };
 };
+
+Doctors = geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(Doctors);
 
 export default connect(stateToProps, dispatchToProps)(Doctors);
