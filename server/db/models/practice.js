@@ -32,7 +32,6 @@ class Practice {
         : '40.71%2C-74.00%2C100';
       const url =
         'https://api.betterdoctor.com/2016-03-01' +
-        today +
         '/practices?location=' +
         locationWithRadius +
         '&user_location=' +
