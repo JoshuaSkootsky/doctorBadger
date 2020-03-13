@@ -4,7 +4,8 @@ module.exports = router;
 
 router.get('/', async (req, res, next) => {
   try {
-    const practices = await Practice.findAll();
+    const practice = new Practice();
+    const practices = await practice.findAll();
     // normalize the practices for the redux state
     const normalized = {};
     practices.data.map((practice, index) => {

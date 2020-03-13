@@ -4,10 +4,8 @@ const fs = require('fs');
 
 // represents a medical practice.
 // Currently mocking up making an API call by reading from file
-const Practice = new (class Practice {
-  constructor() {
-    this.name = 'name';
-  }
+class Practice {
+  // in the future, this will have process.env.NODE_ENV === test wrapped around the test data
   findAll() {
     // '../../../practices.json';
     return new Promise(function(resolve, reject) {
@@ -17,6 +15,6 @@ const Practice = new (class Practice {
       });
     });
   }
-})();
+}
 
 module.exports = Practice;

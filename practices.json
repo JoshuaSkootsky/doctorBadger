@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "data_type": "array",
+    "item_type": "Practice",
+    "total": 24745,
+    "count": 10,
+    "skip": 0,
+    "limit": 10
+  },
+  "data": [
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.048726343369426814,
+      "lat": 37.7737,
+      "lon": -122.4129,
+      "uid": "10e7ab765caaf8ab180d3f6484ddc04f",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.7737,
+        "lon": -122.4129,
+        "state": "CA",
+        "state_long": "California",
+        "street": "52 Dore St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4155533100",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/10e7ab765caaf8ab180d3f6484ddc04f/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.09941085283606046,
+      "lat": 37.77261,
+      "lon": -122.41475,
+      "uid": "773266226c110dcc225d5f59309c4094",
+      "name": "Elizabeth Springer, MD",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77261,
+        "lon": -122.41475,
+        "state": "CA",
+        "state_long": "California",
+        "street": "245 11th St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4153550311",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/773266226c110dcc225d5f59309c4094/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.09941085283606046,
+      "lat": 37.77261,
+      "lon": -122.41475,
+      "uid": "a59f60e6915ca709f1f8ab6ed9ff3359",
+      "name": "Westside Community Services",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77261,
+        "lon": -122.41475,
+        "state": "CA",
+        "state_long": "California",
+        "street": "245 11th St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4153550309",
+          "type": "fax"
+        },
+        {
+          "number": "4153550311",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/a59f60e6915ca709f1f8ab6ed9ff3359/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.09941085283606046,
+      "lat": 37.77261,
+      "lon": -122.41475,
+      "uid": "10175424fa536f64b9b644dd936c3c1a",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77261,
+        "lon": -122.41475,
+        "state": "CA",
+        "state_long": "California",
+        "street": "245 11th St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4153550311",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/10175424fa536f64b9b644dd936c3c1a/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.11339669898518914,
+      "lat": 37.77432,
+      "lon": -122.41423,
+      "uid": "a1cdc29c39dadb559d1b5dee55887231",
+      "name": "Timothy Sinclair, MD",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77432,
+        "lon": -122.41423,
+        "state": "CA",
+        "state_long": "California",
+        "street": "1380 Howard St",
+        "street2": "Fl 5",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4152553442",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/a1cdc29c39dadb559d1b5dee55887231/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.16972939785433855,
+      "lat": 37.77313,
+      "lon": -122.4161,
+      "uid": "09b7ef6e02a071c0d3cae9c564f4f9be",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77313,
+        "lon": -122.4161,
+        "state": "CA",
+        "state_long": "California",
+        "street": "1520 Howard St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4153558300",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/09b7ef6e02a071c0d3cae9c564f4f9be/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.18482430300390906,
+      "lat": 37.77498,
+      "lon": -122.41527,
+      "uid": "4a6f608ffecbe41ff0d3e421e4052004",
+      "name": "Discover Health",
+      "accepts_new_patients": true,
+      "insurance_uids": [
+        "blueshieldofcalifornia-blueshieldcabasicppobronzelevelhix",
+        "healthnet-healthnetindividualfamilyppohix",
+        "medicare-medicare",
+        "medicaid-medicaid",
+        "premerabluecross-premeraheritagesignature"
+      ],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77498,
+        "lon": -122.41527,
+        "state": "CA",
+        "state_long": "California",
+        "street": "123 10th St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4152655405",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/4a6f608ffecbe41ff0d3e421e4052004/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.21475961618101738,
+      "lat": 37.77095,
+      "lon": -122.41005,
+      "uid": "f59540c4aba89f3ab2dde118cfb34244",
+      "name": "David Ernest Dallafior",
+      "accepts_new_patients": true,
+      "insurance_uids": [
+        "blueshieldofcalifornia-blueshieldcabasicepobronzelevelhix",
+        "blueshieldofcalifornia-blueshieldcabasicppobronzelevelhix"
+      ],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77095,
+        "lon": -122.41005,
+        "state": "CA",
+        "state_long": "California",
+        "street": "465 10th St",
+        "street2": "Apt 305",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "5046693744",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/f59540c4aba89f3ab2dde118cfb34244/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.2316146201683108,
+      "lat": 37.77625,
+      "lon": -122.41198,
+      "uid": "3b2f7424b0469eb9d626e81b9e3669ae",
+      "name": "Compassionate Health Options",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77625,
+        "lon": -122.41198,
+        "state": "CA",
+        "state_long": "California",
+        "street": "1200 Howard St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4152551200",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/3b2f7424b0469eb9d626e81b9e3669ae/doctors",
+      "doctors": []
+    },
+    {
+      "location_slug": "ca-san-francisco",
+      "within_search_area": true,
+      "distance": 0.2316146201683108,
+      "lat": 37.77625,
+      "lon": -122.41198,
+      "uid": "49084b8cf13e6e85707e863fe736626b",
+      "name": "Hanya Barth, MD",
+      "accepts_new_patients": true,
+      "insurance_uids": [],
+      "specialty_uids": [],
+      "specialties": [],
+      "visit_address": {
+        "city": "San Francisco",
+        "lat": 37.77625,
+        "lon": -122.41198,
+        "state": "CA",
+        "state_long": "California",
+        "street": "1200 Howard St",
+        "zip": "94103"
+      },
+      "office_hours": [],
+      "phones": [
+        {
+          "number": "4159028522",
+          "type": "landline"
+        }
+      ],
+      "languages": [
+        {
+          "name": "English",
+          "code": "en"
+        }
+      ],
+      "doctors_pagination_url": "https://api.betterdoctor.com/2016-03-01/practices/49084b8cf13e6e85707e863fe736626b/doctors",
+      "doctors": []
+    }
+  ]
+}
