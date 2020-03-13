@@ -66,15 +66,6 @@ trailingComma: es5
 bracketSpacing: true
 ```
 
-## Start
-
-Running `npm run start-dev` will make great things happen!
-
-If you want to run the server and/or `webpack` separately, you can also
-`npm run start-server` and `npm run build-client`.
-
-From there, just follow your bliss.
-
 ## CD Made Simple on Heroku
 
 To deploy continuously off master, you don't need to tell Travis to deploy to Heroku. You can tell Heroku to watch master, and it will deploy from there.
@@ -215,6 +206,14 @@ git-tracking to be cluttered with production build files like
 `bundle.js`! By doing these steps, we make sure our development and
 production environments both stay nice and clean!
 
+### OAuth
+
+- To use OAuth with Google, complete the steps above with a real client
+  ID and client secret supplied from Google
+  - You can get them from the [Google APIs dashboard][google-apis].
+
+[google-apis]: https://console.developers.google.com/apis/credentials
+
 ## Setup
 
 For local development with postgres and the createdb util:
@@ -242,10 +241,11 @@ process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
 process.env.GOOGLE_CALLBACK = '/auth/google/callback'
 ```
 
-### OAuth
+## Start
 
-- To use OAuth with Google, complete the steps above with a real client
-  ID and client secret supplied from Google
-  - You can get them from the [Google APIs dashboard][google-apis].
+Running `npm run start-dev` will make great things happen!
 
-[google-apis]: https://console.developers.google.com/apis/credentials
+If you want to run the server and/or `webpack` separately, you can also
+`npm run start-server` and `npm run build-client`.
+
+From there, just follow your bliss.
