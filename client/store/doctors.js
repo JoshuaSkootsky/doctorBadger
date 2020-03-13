@@ -17,7 +17,7 @@ export const loadDoctors = () => async dispatch => {
   try {
     // make API call to better doctors
     console.log('about to get doctors');
-    const res = await axios.get('/api/providers');
+    const res = await axios.get('/api/practices');
     console.log('got doctors');
     dispatch(getDoctors(res.data || initialState));
   } catch (err) {
