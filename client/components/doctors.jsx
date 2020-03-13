@@ -1,19 +1,24 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { geolocated } from 'react-geolocated';
 
 import { loadDoctors } from '../store';
 
-const Doctors = ({ doctors, loadDoctors }) => {
+let Doctors = props => {
+  const doctors = props.doctors;
+  const dispatchDoctors = props.loadDoctors;
   useEffect(() => {
+    if (props.coords) {
+      // load them into redux state
+      dispatchDoctors(props.coords);
+    }
     // empty array tells effect to run only once
-    loadDoctors(); // load them into redux state
-  }, []);
+  }, [props.coords]); //update on coords latitude/long changing
+
   // guard for - in loop to prevent prototype leaking
   const arr = [];
   for (const key in doctors) {
     if ({}.hasOwnProperty.call(doctors, key)) {
-      console.log(doctors[key]);
       arr[key] = doctors[key];
     }
   }
@@ -25,13 +30,13 @@ const Doctors = ({ doctors, loadDoctors }) => {
         {arr.map(doctor => {
           return (
             <li key={doctor.index}>
+              <p> Name: {doctor.name}</p>
               <p>Accepting new patients: {doctor.newPatients ? 'Yes' : 'No'}</p>
               <p>City: {doctor.address.city}</p>
               <p>State: {doctor.address.state_long}</p>
               <p>Street: {doctor.address.street}</p>
               <p> Zip Code: {doctor.address.zip}</p>
               <p> Phone: {doctor.phone} </p>
-              <p> Languages: {doctor.languages}</p>
             </li>
           );
         })}
@@ -48,8 +53,15 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
   return {
-    loadDoctors: () => dispatch(loadDoctors()),
+    loadDoctors: coords => dispatch(loadDoctors(coords)),
   };
 };
+
+Doctors = geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(Doctors);
 
 export default connect(stateToProps, dispatchToProps)(Doctors);
