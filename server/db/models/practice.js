@@ -1,3 +1,4 @@
+const Promise = require('bluebird');
 const fs = require('fs');
 // I want to import Bluebird and return a promise?
 
@@ -8,12 +9,11 @@ class Practice {
     this.name = 'name';
   }
   findAll() {
-    const fileName = '../../../practices.json';
-    fs.readFile(fileName, (err, data) => {
-      if (err) throw err;
-      const contents = JSON.parse(data);
-      console.log(contents);
-      return contents;
+    return new Promise(function(resolve, reject) {
+      const fileName = '../../../practices.json';
+      fs.readFile(fileName, (err, data) => {
+        err ? reject(err) : resolve(JSON.parse(data));
+      });
     });
   }
 }
