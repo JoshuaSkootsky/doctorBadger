@@ -7,7 +7,7 @@ import { loadDoctors } from '../store';
 const Doctors = props => {
   useEffect(() => {
     // empty array tells effect to run only once
-    props.fetchDoctors(); // load them into redux state
+    props.loadDoctors(); // load them into redux state
   }, []);
 
   return <p>List of Doctors goes here</p>;
@@ -21,7 +21,7 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
   return {
-    fetchDoctors: () => dispatch(loadDoctors()),
+    loadDoctors: () => dispatch(loadDoctors()),
   };
 };
 
