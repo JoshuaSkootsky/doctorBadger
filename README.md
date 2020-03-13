@@ -35,7 +35,15 @@ This app uses the [Better Doctor](http://betterdoctor.com/ 'Better Doctor') API 
 
 ## Secure Design and Promise Based Testing
 
-To make this work, on the server backend of this project is a class, similar to a class that exists in an ORM like sequelize, which on a familiar call to the database like findAll() instead makes a call to a Web API.
+To make this work, on the server backend of this project is a class, similar to a class that exists in an ORM like [Sequelize](https://sequelize.org/ 'Sequelize Official Site'), which on a familiar call to the database like findAll() instead makes a call to a Web API.
+
+This allows for greater security, because the API key is read off process.env on the backend. If this was done directly in a thunk on the front end, a malicious actor could get the API key.
+
+Furthermore, to test my own class and build up the app, I built and returned my own Promises from this class, initially reading a valid API call off local storage. This helped streamline the process of building and testing my design as the app grew.
+
+## Continuous Integration and Delievery
+
+I spent time at the beginning of the project setting up continuous integration and delivery. Even though it was "only" a solo project, this ended up saving me time. My lesson to teams is that it is worth knowing enough DevOps to set up continuous delievery because removing the friction from deployment means you are never waiting for someone else to deploy, and it keeps you focused on delievering functionality where it matters - off localhost and on the Cloud.
 
 ### Twelve Factor Design
 
