@@ -11,7 +11,6 @@ For local development with postgres and the createdb util:
 ```
 createdb doctorBadger
 createdb doctorBadger-test
-
 ```
 
 Then run `npm i`
