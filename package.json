@@ -41,12 +41,13 @@
   },
   "author": "Joshua Skootsky",
   "license": "MIT",
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/JoshuaSkootsky/doctorBadger"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.1.1",
     "express": "^4.16.4",
