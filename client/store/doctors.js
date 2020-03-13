@@ -16,11 +16,10 @@ const getDoctors = doctors => ({ type: GET_DOCTORS, doctors });
 export const loadDoctors = () => async dispatch => {
   try {
     // make API call to better doctors
-
-    const res = await axios.get('/api/providers');
+    const res = await axios.get('/api/practices');
     dispatch(getDoctors(res.data || initialState));
   } catch (err) {
-    console.error(err);
+    console.error(err, 'error GET /api/practices');
   }
 };
 
