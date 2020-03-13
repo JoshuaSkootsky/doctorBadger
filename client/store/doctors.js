@@ -15,12 +15,21 @@ const getDoctors = doctors => ({ type: GET_DOCTORS, doctors });
 
 export const loadDoctors = coords => async dispatch => {
   try {
+    console.log('Loading doctors... coords?', coords);
     // make API call to better doctors
-    const res = await axios.get('/api/practices', {
-      params: {
-        coords,
-      },
-    });
+    let res;
+    if (coords) {
+      console.log('coords in doctors thunk', coords);
+      res = await axios.get('/api/practices', {
+        params: {
+          lat: coords.latitude,
+          long: coords.longitude,
+        },
+      });
+    }
+    if (!coords) {
+      res = await axios.get('/api/practices');
+    }
     dispatch(getDoctors(res.data || initialState));
   } catch (err) {
     console.error(err, 'error GET /api/practices');

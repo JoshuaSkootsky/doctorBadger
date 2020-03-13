@@ -13,7 +13,9 @@ let Doctors = props => {
       console.log('props.coords.latitude', props.coords.latitude);
     }
     // empty array tells effect to run only once
+
     dispatchDoctors(props.coords); // load them into redux state
+    console.log('dispatchedDoctors!');
   }, [props.coords]); //update on latitude changing
   // guard for - in loop to prevent prototype leaking
 
@@ -74,7 +76,7 @@ const stateToProps = state => {
 
 const dispatchToProps = dispatch => {
   return {
-    loadDoctors: () => dispatch(loadDoctors()),
+    loadDoctors: coords => dispatch(loadDoctors(coords)),
   };
 };
 

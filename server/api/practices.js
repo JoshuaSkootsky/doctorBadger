@@ -5,9 +5,12 @@ module.exports = router;
 router.get('/', async (req, res, next) => {
   try {
     const practiceInstance = new Practice();
-    let coords = req.query.coords;
+    console.log('\nREQ.QUERY: \n', req.query);
+    let lat = req.query.lat;
+    let long = req.query.long;
     // note this outputs to console
-    console.log('coords in route practices', coords);
+    console.log('lat and long in route practices', lat, long);
+    let coords = { lat, long };
     if (!coords) coords = undefined;
     const practices = await practiceInstance.findAll(coords);
     // normalize the practices for the redux state
