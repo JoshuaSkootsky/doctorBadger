@@ -20,13 +20,10 @@ class Practice {
     // otherwise make a real API call
     try {
       const key = process.env.DOCTORS_API_KEY;
-      console.log('reading key: ', key);
-      const https =
+      const url =
         'https://api.betterdoctor.com/2016-03-01/practices?location=40.71%2C-74.00%2C100&user_location=40.71%2C-74.00&sort=distance-asc&skip=0&limit=12&user_key=' +
         key;
-      console.log('https: ', https);
-      const { data } = await axios.get(https);
-      console.log(data);
+      const { data } = await axios.get(url);
       return data;
     } catch (err) {
       throw err;
