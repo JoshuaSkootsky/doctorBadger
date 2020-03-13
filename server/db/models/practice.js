@@ -9,8 +9,9 @@ class Practice {
     this.name = 'name';
   }
   findAll() {
+    // '../../../practices.json';
     return new Promise(function(resolve, reject) {
-      const fileName = '../../../practices.json';
+      const fileName = 'practices.json';
       fs.readFile(fileName, (err, data) => {
         err ? reject(err) : resolve(JSON.parse(data));
       });
