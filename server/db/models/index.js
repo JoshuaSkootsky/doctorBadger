@@ -1,5 +1,5 @@
 const User = require('./user');
-const Provider = require('./provider');
+const Practice = require('./practice');
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -16,5 +16,5 @@ const Provider = require('./provider');
  */
 module.exports = {
   User,
-  Provider,
+  Practice,
 };
