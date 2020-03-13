@@ -1,7 +1,8 @@
 const { Practice } = require('./');
 const { expect } = require('chai');
 
-if (process.env.NODE_ENV !== 'production') {
+// these tests only work locally for now until it is hooked up to the web api
+if (process.env.NODE_ENV === 'development') {
   const practice = new Practice();
 
   const readPractices = async () => {
