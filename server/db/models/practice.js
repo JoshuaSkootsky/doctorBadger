@@ -9,7 +9,7 @@ class Practice {
   // in the future, this will have process.env.NODE_ENV === test wrapped around the test data
   async findAll() {
     // '../../../practices.json';
-    if (process.env.NODE_ENV === 'test') {
+    if (process.env.NODE_ENV === 'not now') {
       return new Promise(function(resolve, reject) {
         const fileName = 'practices.json';
         fs.readFile(fileName, (err, data) => {
@@ -19,11 +19,15 @@ class Practice {
     }
     // otherwise make a real API call
     try {
-      const practices = await axios.get(
+      const key = process.env.DOCTORS_API_KEY;
+      console.log('reading key: ', key);
+      const https =
         'https://api.betterdoctor.com/2016-03-01/practices?location=40.71%2C-74.00%2C100&user_location=40.71%2C-74.00&sort=distance-asc&skip=0&limit=12&user_key=' +
-          process.env.DOCTORS_API_KEY
-      );
-      return practices;
+        key;
+      console.log('https: ', https);
+      const { data } = await axios.get(https);
+      console.log(data);
+      return data;
     } catch (err) {
       throw err;
     }
