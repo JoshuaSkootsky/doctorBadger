@@ -4,7 +4,6 @@ module.exports = router;
 
 router.get('/', async (req, res, next) => {
   try {
-    console.log('about to try to find all', Practice);
     const practices = await Practice.findAll();
     // normalize the practices for the redux state
     const normalized = {};
