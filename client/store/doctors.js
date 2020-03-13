@@ -1,11 +1,5 @@
 import axios from 'axios';
 
-const api_key = process.env.DOCTORS_API_KEY;
-
-const doctorsResource =
-  'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=' +
-  api_key;
-
 const GET_DOCTORS = 'GET_DOCTORS';
 
 const initialState = {}; // have a normalized store of doctors
@@ -23,7 +17,7 @@ export const loadDoctors = () => async dispatch => {
   try {
     // make API call to better doctors
 
-    const res = await axios.get(doctorsResource);
+    const res = await axios.get('/api/doctors');
     console.log(res);
     dispatch(getDoctors(res.data || initialState));
   } catch (err) {
