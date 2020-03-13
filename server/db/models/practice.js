@@ -4,7 +4,7 @@ const fs = require('fs');
 
 // represents a medical practice.
 // Currently mocking up making an API call by reading from file
-class Practice {
+const Practice = new (class Practice {
   constructor() {
     this.name = 'name';
   }
@@ -17,6 +17,6 @@ class Practice {
       });
     });
   }
-}
+})();
 
 module.exports = Practice;
