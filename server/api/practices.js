@@ -16,7 +16,9 @@ router.get('/', async (req, res, next) => {
         phone: practice.phones
           .map(phone => phone.type + ' - ' + phone.number)
           .join(',  '),
-        languages: practice.languages.map(language => language.name).join(' '),
+        languages: practice.languages
+          .map(language => language.name)
+          .join(',  '),
       };
     });
 
