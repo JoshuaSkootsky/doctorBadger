@@ -9,7 +9,7 @@ class Practice {
   // in the future, this will have process.env.NODE_ENV === test wrapped around the test data
   async findAll() {
     // '../../../practices.json';
-    if (process.env.NODE_ENV === 'not now') {
+    if (process.env.NODE_ENV === 'test') {
       return new Promise(function(resolve, reject) {
         const fileName = 'practices.json';
         fs.readFile(fileName, (err, data) => {
