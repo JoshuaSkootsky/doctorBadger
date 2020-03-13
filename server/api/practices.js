@@ -13,8 +13,10 @@ router.get('/', async (req, res, next) => {
         index,
         newPatients: practice.accepts_new_patients,
         address: practice.visit_address,
-        phone: practice.phones.map(phone => phone.number),
-        languages: practice.languages.map(language => language.name),
+        phone: practice.phones
+          .map(phone => phone.type + ' - ' + phone.number)
+          .join(',  '),
+        languages: practice.languages.map(language => language.name).join(' '),
       };
     });
 
