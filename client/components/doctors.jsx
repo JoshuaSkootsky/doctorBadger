@@ -30,37 +30,17 @@ let Doctors = props => {
         {arr.map(doctor => {
           return (
             <li key={doctor.index}>
+              <p> Name: {doctor.name}</p>
               <p>Accepting new patients: {doctor.newPatients ? 'Yes' : 'No'}</p>
               <p>City: {doctor.address.city}</p>
               <p>State: {doctor.address.state_long}</p>
               <p>Street: {doctor.address.street}</p>
               <p> Zip Code: {doctor.address.zip}</p>
               <p> Phone: {doctor.phone} </p>
-              <p> Languages: {doctor.languages}</p>
             </li>
           );
         })}
       </ol>
-      {!props.isGeolocationAvailable ? (
-        <div>Your browser does not support Geolocation</div>
-      ) : !props.isGeolocationEnabled ? (
-        <div>Geolocation is not enabled</div>
-      ) : props.coords ? (
-        <table>
-          <tbody>
-            <tr>
-              <td>latitude</td>
-              <td>{props.coords.latitude}</td>
-            </tr>
-            <tr>
-              <td>longitude</td>
-              <td>{props.coords.longitude}</td>
-            </tr>
-          </tbody>
-        </table>
-      ) : (
-        <div>Getting the location data&hellip; </div>
-      )}
     </Fragment>
   );
 };

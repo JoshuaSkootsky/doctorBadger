@@ -19,12 +19,10 @@ router.get('/', async (req, res, next) => {
       normalized[index] = {
         index,
         newPatients: practice.accepts_new_patients,
+        name: practice.name,
         address: practice.visit_address,
         phone: practice.phones
           .map(phone => phone.type + ' - ' + phone.number)
-          .join(',  '),
-        languages: practice.languages
-          .map(language => language.name)
           .join(',  '),
       };
     });
