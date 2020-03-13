@@ -8,18 +8,14 @@ let Doctors = props => {
   const doctors = props.doctors;
   const dispatchDoctors = props.loadDoctors;
   useEffect(() => {
-    console.log('props.coords', props.coords);
     if (props.coords) {
-      console.log('props.coords.latitude', props.coords.latitude);
+      // load them into redux state
       dispatchDoctors(props.coords);
     }
     // empty array tells effect to run only once
+  }, [props.coords]); //update on coords latitude/long changing
 
-    // load them into redux state
-    console.log('dispatchedDoctors!');
-  }, [props.coords]); //update on latitude changing
   // guard for - in loop to prevent prototype leaking
-
   const arr = [];
   for (const key in doctors) {
     if ({}.hasOwnProperty.call(doctors, key)) {
