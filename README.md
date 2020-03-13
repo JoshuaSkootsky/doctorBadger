@@ -2,7 +2,7 @@
 
 # doctorBadger
 
-A website for finding doctors near you. Give them a call and get medical treatment with a provider you can build an ongoing relationship with.
+A website for finding doctors near you. Give them a call and get medical treatment with a provider you can build an ongoing relationship with. Check it out live on Heroku: [doctorBadger](https://doctor-badger.herokuapp.com/ doctorBadger")
 
 ## Joshua Skootsky, March 2020
 
