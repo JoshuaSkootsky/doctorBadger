@@ -23,13 +23,17 @@ class Practice {
       let location;
       if (coords) {
         console.log('in practice class, reading coords');
-        console.log(coords);
+        // in practice class, reading coords
+        // { lat: '40.858649', long: '-73.94772689999999' }
+        location = coords.lat + '%2C-' + coords.long;
       }
       const queryLocation = location ? location : '40.71%2C-74.00%2C100';
       const url =
         'https://api.betterdoctor.com/2016-03-01/practices?location=' +
         queryLocation +
-        '&user_location=40.71%2C-74.00&sort=distance-asc&skip=0&limit=12&user_key=' +
+        '&user_location=' +
+        queryLocation +
+        '&sort=distance-asc&skip=0&limit=12&user_key=' +
         key;
       const { data } = await axios.get(url);
       return data;
