@@ -11,10 +11,11 @@ let Doctors = props => {
     console.log('props.coords', props.coords);
     if (props.coords) {
       console.log('props.coords.latitude', props.coords.latitude);
+      dispatchDoctors(props.coords);
     }
     // empty array tells effect to run only once
 
-    dispatchDoctors(props.coords); // load them into redux state
+    // load them into redux state
     console.log('dispatchedDoctors!');
   }, [props.coords]); //update on latitude changing
   // guard for - in loop to prevent prototype leaking
