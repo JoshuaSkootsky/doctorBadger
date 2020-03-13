@@ -2,52 +2,48 @@
 
 # doctorBadger
 
+A website for finding doctors near you. Give them a call and get medical treatment with a provider you can build an ongoing relationship with.
+
 ## Joshua Skootsky, March 2020
 
-# To get started on development:
+# Quick start for devs:
 
 For local development with postgres and the createdb util:
 
 ```
 createdb doctorBadger
 createdb doctorBadger-test
-
 ```
 
 Then run `npm i`
 
 Run it on localhost with `npm run start-dev`
 
-### Built with Express, Sequelize, Postgres, React, and Redux
+# Technical Rundown
+
+## Built with Express, Sequelize, Postgres, React, and Redux
 
 This project uses Node.js and Express for the server, Sequelize as an ORM to talk to a Postgres database, React for display components, and Redux for managing state on the front end.
 
-## Setup
+## Geolocation
 
-For local development with postgres and the createdb util:
+This app uses the [React Geolocated Higher-Order Component](https://www.npmjs.com/package/react-geolocated) for easy integration of geolocation into a React app. I had no problems integrating this into a functional component that depended on the useEffect hook to update Redux state.
 
-```
-createdb doctorBadger
-createdb doctorBadger-test
-```
+## Better Doctor Web API
 
-- By default, running `npm test` will use `doctorBadger-test`, while
-  regular development uses the `doctorBadger` database.
+This app uses the [Better Doctor](http://betterdoctor.com/ 'Better Doctor') API - check out their [ developer site here](https://developer.betterdoctor.com/documentation15 'Dev API Site') .
 
-- Create a file called `secrets.js` in the project root
-  - This file is listed in `.gitignore`, and will _only_ be required
-    in your _development_ environment
-  - Its purpose is to attach the secret environment variables that you
-    will use while developing
-  - However, it's **very** important that you **not** push it to
-    Github! Otherwise, _prying eyes_ will find your secret API keys!
-  - It might look like this:
+## Secure Design and Promise Based Testing
 
-```
-process.env.GOOGLE_CLIENT_ID = 'hush hush'
-process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
-process.env.GOOGLE_CALLBACK = '/auth/google/callback'
-```
+To make this work, on the server backend of this project is a class, similar to a class that exists in an ORM like [Sequelize](https://sequelize.org/ 'Sequelize Official Site'), which on a familiar call to the database like findAll() instead makes a call to a Web API.
+
+This allows for greater security, because the API key is read off process.env on the backend. If this was done directly in a thunk on the front end, a malicious actor could get the API key.
+
+Furthermore, to test my own class and build up the app, I built and returned my own Promises from this class, initially reading a valid API call off local storage. This helped streamline the process of building and testing my design as the app grew.
+
+## Continuous Integration and Delivery
+
+I spent time at the beginning of the project setting up continuous integration and delivery. Even though it was "only" a solo project, this ended up saving me time. My lesson to teams is that it is worth knowing enough DevOps to set up continuous delievery because removing the friction from deployment means you are never waiting for someone else to deploy, and it keeps you focused on delievering functionality where it matters - off localhost and on the Cloud.
 
 ### Twelve Factor Design
 
@@ -56,19 +52,11 @@ This project uses the [Twelve Factor App](https://12factor.net/ 'Twelve Factor A
 > I'm the author of 12factor (although really it is an aggregation of the work and insights from many people at Heroku). It continues to surprise and please me that this piece continues to be relevant eight years later—a virtual eternity in software/internet time.
 > Fun fact: I debated whether to call it "the Heroku way" or somesuch. Glad I went with a standalone name, feel like that allowed it to take on a life beyond that product. For example I doubt Google would have wanted a page about "Heroku Way app development on GCP" in their documentation. :-)
 
-We deployed to Heroku, but the same DevOps principles would have allowed us to deploy to AWS, Google Cloud, Microsoft Azure, or another cloud computing service.
+I deployed to Heroku, but the same DevOps principles would have allowed us to deploy to AWS, Google Cloud, Microsoft Azure, or another cloud computing service.
 
-### OAuth
+## Linting and Prettier Style
 
-- To use OAuth with Google, complete the steps above with a real client
-  ID and client secret supplied from Google
-  - You can get them from the [Google APIs dashboard][google-apis].
-
-[google-apis]: https://console.developers.google.com/apis/credentials
-
-## Linting
-
-ES Lint is integrated into the build process.
+ES Lint `--fix` is integrated into the build process.
 
 Here is the prettierrc.yml:
 
@@ -77,15 +65,6 @@ singleQuote: true
 trailingComma: es5
 bracketSpacing: true
 ```
-
-## Start
-
-Running `npm run start-dev` will make great things happen!
-
-If you want to run the server and/or `webpack` separately, you can also
-`npm run start-server` and `npm run build-client`.
-
-From there, just follow your bliss.
 
 ## CD Made Simple on Heroku
 
@@ -106,14 +85,16 @@ Does the trick, along with these configurations on Heroku's back end:
 
 ## Deployment
 
-Ready to go world wide? Here's a guide to deployment! There are two
-supported ways to deploy in Boilermaker:
+The first step to deployment on Heroku is signing in with the Heroku CLI.
 
-- automatically, via continuous deployment with Travis.
+After that, you have three options for deployment:
+
 - "manually", from your local machine via the `deploy` script.
+- automatically, via continuous deployment with Travis.
+- automatically, via continuous deployment of the master branch from Heroku. Two points here:
 
-Either way, you'll need to set up your deployment server to start.
-The steps below are also covered in the CI/CD workshop.
+* You can set up Heroku to wait for Travis CI to pass, as shown in the above image by checking a box
+* You need to add a build script for Heroku to run to build because this project depends on webpack's build step.
 
 ### Heroku
 
@@ -135,7 +116,7 @@ The steps below are also covered in the CI/CD workshop.
   1.  `heroku git:remote your-app-name` You'll need to be a
       collaborator on the app.
 
-### Travis
+### Deploying With Travis (Encrypt a Heroku Auth Token)
 
 _**NOTE**_ that this step assumes that Travis-CI is already testing your code.
 Continuous Integration is not about testing per se – it's about _continuously
@@ -178,7 +159,7 @@ Heroku app. This is only an issue if you rename your GitHub organization,
 repository name or Heroku app name. You can update these values using
 `git remote` and its related commands.
 
-#### Travis CLI
+#### Travis CLI (Backup option for above)
 
 There is a procedure to complete the above steps by installing the official
 [Travis CLI tools][travis-cli]. This requires a recent Ruby, but this step
@@ -192,7 +173,7 @@ will automatically push the app to Heroku for you.
 
 ### Manual deploy off Heroku CLI
 
-As a backup, or before you set up Continuous Delievery off master branch as above, `npm run deploy` will send the current state of master to Heroku.
+As a backup, or before you set up Continuous Delievery off master branch as above, the `npm run deploy` script will send the current state of master to Heroku.
 
 1.  Make sure that all your work is fully committed and merged into your
     master branch on Github.
@@ -224,3 +205,47 @@ production server to be cluttered up with dev dependencies like
 git-tracking to be cluttered with production build files like
 `bundle.js`! By doing these steps, we make sure our development and
 production environments both stay nice and clean!
+
+### OAuth
+
+- To use OAuth with Google, complete the steps above with a real client
+  ID and client secret supplied from Google
+  - You can get them from the [Google APIs dashboard][google-apis].
+
+[google-apis]: https://console.developers.google.com/apis/credentials
+
+## Setup
+
+For local development with postgres and the createdb util:
+
+```
+createdb doctorBadger
+createdb doctorBadger-test
+```
+
+- By default, running `npm test` will use `doctorBadger-test`, while
+  regular development uses the `doctorBadger` database.
+
+- Create a file called `secrets.js` in the project root
+  - This file is listed in `.gitignore`, and will _only_ be required
+    in your _development_ environment
+  - Its purpose is to attach the secret environment variables that you
+    will use while developing
+  - However, it's **very** important that you **not** push it to
+    Github! Otherwise, _prying eyes_ will find your secret API keys!
+  - It might look like this:
+
+```
+process.env.GOOGLE_CLIENT_ID = 'hush hush'
+process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
+process.env.GOOGLE_CALLBACK = '/auth/google/callback'
+```
+
+## Start
+
+Running `npm run start-dev` will make great things happen!
+
+If you want to run the server and/or `webpack` separately, you can also
+`npm run start-server` and `npm run build-client`.
+
+From there, just follow your bliss.
