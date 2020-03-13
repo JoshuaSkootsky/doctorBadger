@@ -106,14 +106,16 @@ Does the trick, along with these configurations on Heroku's back end:
 
 ## Deployment
 
-Ready to go world wide? Here's a guide to deployment! There are two
-supported ways to deploy in Boilermaker:
+The first step to deployment on Heroku is signing in with the Heroku CLI.
 
-- automatically, via continuous deployment with Travis.
+After that, you have three options for deployment:
+
 - "manually", from your local machine via the `deploy` script.
+- automatically, via continuous deployment with Travis.
+- automatically, via continuous deployment of the master branch from Heroku. Two points here:
 
-Either way, you'll need to set up your deployment server to start.
-The steps below are also covered in the CI/CD workshop.
+* You can set up Heroku to wait for Travis CI to pass, as shown in the above image by checking a box
+* You need to add a build script for Heroku to run to build because this project depends on webpack's build step.
 
 ### Heroku
 
@@ -135,7 +137,7 @@ The steps below are also covered in the CI/CD workshop.
   1.  `heroku git:remote your-app-name` You'll need to be a
       collaborator on the app.
 
-### Travis
+### Deploying With Travis (Encrypt a Heroku Auth Token)
 
 _**NOTE**_ that this step assumes that Travis-CI is already testing your code.
 Continuous Integration is not about testing per se – it's about _continuously
@@ -178,7 +180,7 @@ Heroku app. This is only an issue if you rename your GitHub organization,
 repository name or Heroku app name. You can update these values using
 `git remote` and its related commands.
 
-#### Travis CLI
+#### Travis CLI (Backup option for above)
 
 There is a procedure to complete the above steps by installing the official
 [Travis CLI tools][travis-cli]. This requires a recent Ruby, but this step
@@ -192,7 +194,7 @@ will automatically push the app to Heroku for you.
 
 ### Manual deploy off Heroku CLI
 
-As a backup, or before you set up Continuous Delievery off master branch as above, `npm run deploy` will send the current state of master to Heroku.
+As a backup, or before you set up Continuous Delievery off master branch as above, the `npm run deploy` script will send the current state of master to Heroku.
 
 1.  Make sure that all your work is fully committed and merged into your
     master branch on Github.

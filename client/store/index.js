@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import user from './user';
 import doctors from './doctors';
 
-const reducer = combineReducers({ user });
+const reducer = combineReducers({ user, doctors });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );
@@ -13,3 +13,4 @@ const store = createStore(reducer, middleware);
 
 export default store;
 export * from './user';
+export * from './doctors';

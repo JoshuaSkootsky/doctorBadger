@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const doctorsApiKey = process.env.DOCTORS_API_KEY;
-
 const GET_DOCTORS = 'GET_DOCTORS';
 
 const initialState = {}; // have a normalized store of doctors
@@ -9,7 +7,7 @@ const initialState = {}; // have a normalized store of doctors
 /*
  * ACTION CREATORS
  */
-const getDoctors = user => ({ type: GET_USER, getDoctors });
+const getDoctors = doctors => ({ type: GET_DOCTORS, doctors });
 
 /*
  * THUNK CREATORS
@@ -19,10 +17,21 @@ export const loadDoctors = () => async dispatch => {
   try {
     // make API call to better doctors
 
-    const res = await axios.get('/auth/me');
-    console.log(res);
-    dispatch(getUser(res.data || initialState));
+    const res = await axios.get('/api/providers');
+    dispatch(getDoctors(res.data || initialState));
   } catch (err) {
     console.error(err);
   }
 };
+
+/**
+ * REDUCER
+ */
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case GET_DOCTORS:
+      return action.doctors;
+    default:
+      return state;
+  }
+}
