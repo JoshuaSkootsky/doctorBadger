@@ -5,7 +5,9 @@ module.exports = router;
 router.get('/', async (req, res, next) => {
   try {
     const practiceInstance = new Practice();
-    const practices = await practiceInstance.findAll();
+    let location = req.query.location;
+    if (!location) location = undefined;
+    const practices = await practiceInstance.findAll(location);
     // normalize the practices for the redux state
     const normalized = {};
     practices.data.map((practice, index) => {
@@ -13,8 +15,12 @@ router.get('/', async (req, res, next) => {
         index,
         newPatients: practice.accepts_new_patients,
         address: practice.visit_address,
-        phone: practice.phones.map(phone => phone.number),
-        languages: practice.languages.map(language => language.name),
+        phone: practice.phones
+          .map(phone => phone.type + ' - ' + phone.number)
+          .join(',  '),
+        languages: practice.languages
+          .map(language => language.name)
+          .join(',  '),
       };
     });
 
