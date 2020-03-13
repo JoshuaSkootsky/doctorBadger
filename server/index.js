@@ -49,7 +49,7 @@ const createApp = () => {
     helmet.contentSecurityPolicy({
       directives: {
         defaultSrc: ["'self'"],
-        styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'], // feel free to use another cdn here
+        styleSrc: ["'self'", 'api.betterdoctor.com'], // feel free to use another cdn here
         scriptSrc: ["'self'"],
         reportUri: '/report-violation',
         objectSrc: ["'self'"],
