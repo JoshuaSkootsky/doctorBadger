@@ -15,7 +15,7 @@ let Doctors = ({ doctors, coords, getDoctors }) => {
 
   return (
     <Fragment>
-      <h2>List of Doctors</h2>
+      <h2>Doctors Close to You</h2>
       {doctors.length > 0 ? (
         <ol>
           {doctors.map(doctor => {
