@@ -15,11 +15,10 @@ const getDoctors = doctors => ({ type: GET_DOCTORS, doctors });
 
 export const loadDoctors = coords => async dispatch => {
   try {
-    console.log('Loading doctors... coords?', coords);
+    console.log('Loading doctors from doctors thunk, coords: ', coords);
     // make API call to better doctors
     let res;
     if (coords) {
-      console.log('coords in doctors thunk', coords);
       res = await axios.get('/api/practices', {
         params: {
           lat: coords.latitude,
