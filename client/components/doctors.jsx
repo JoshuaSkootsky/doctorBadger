@@ -13,41 +13,44 @@ let Doctors = ({ doctors, coords, getDoctors }) => {
     // empty array tells effect to run only once
   }, [coords]); //update on coords latitude/long changing
 
-  // guard for - in loop to prevent prototype leaking
-  console.log('doctors in the doctors display component', doctors);
-
   return (
     <Fragment>
       <h2>List of Doctors</h2>
-      <ol>
-        {Object.keys(doctors).map(key => {
-          const doctor = doctors[key];
-          return (
-            <li key={key}>
-              <p> Name: {doctor.name}</p>
-              <p>Accepting new patients: {doctor.newPatients ? 'Yes' : 'No'}</p>
-              {doctor.address ? (
-                <Fragment>
-                  <p>City: {doctor.address.city}</p>
-                  <p>State: {doctor.address.state_long}</p>
-                  <p>Street: {doctor.address.street}</p>
-                  <p> Zip Code: {doctor.address.zip}</p>{' '}
-                </Fragment>
-              ) : (
-                <p> No address available</p>
-              )}
-              <p> Phone: {doctor.phone} </p>
-            </li>
-          );
-        })}
-      </ol>
+      {doctors.length > 0 ? (
+        <ol>
+          {doctors.map(doctor => {
+            return (
+              <li key={doctor.uid}>
+                <p> Name: {doctor.name}</p>
+                <p>
+                  Accepting new patients: {doctor.newPatients ? 'Yes' : 'No'}
+                </p>
+                {doctor.address ? (
+                  <Fragment>
+                    <p>City: {doctor.address.city}</p>
+                    <p>State: {doctor.address.state_long}</p>
+                    <p>Street: {doctor.address.street}</p>
+                    <p> Zip Code: {doctor.address.zip}</p>{' '}
+                  </Fragment>
+                ) : (
+                  <p> No address available</p>
+                )}
+                <p> Phone: {doctor.phone} </p>
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
+        <p>Searching for doctors...</p>
+      )}
     </Fragment>
   );
 };
 
 const stateToProps = state => {
+  // map normalized Redux state to an array
   return {
-    doctors: state.doctors,
+    doctors: Object.keys(state.doctors).map(key => state.doctors[key]),
   };
 };
 
