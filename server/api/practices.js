@@ -5,20 +5,20 @@ module.exports = router;
 router.get('/', async (req, res, next) => {
   try {
     const practiceInstance = new Practice();
-    console.log('\nREQ.QUERY: \n', req.query);
+    console.log('REQ.QUERY: ', req.query);
     let lat = req.query.lat;
     let long = req.query.long;
-    // note this outputs to console
-    console.log('lat and long in route practices', lat, long);
     let coords = { lat, long };
     if (!coords) coords = undefined;
     const practices = await practiceInstance.findAll(coords);
     // normalize the practices for the redux state
     const normalized = {};
-    practices.data.map((practice, index) => {
-      normalized[index] = {
-        index,
-        newPatients: practice.accepts_new_patients,
+    practices.data.map(practice => {
+      const uid = practice.uid;
+      const newPatients = practice.accepts_new_patients;
+      normalized[uid] = {
+        uid,
+        newPatients,
         name: practice.name,
         address: practice.visit_address,
         phone: practice.phones
@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
           .join(',  '),
       };
     });
-
+    console.log('normalized', normalized);
     res.send(normalized);
   } catch (err) {
     next(err);
