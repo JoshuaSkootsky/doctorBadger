@@ -46,7 +46,7 @@
     "url": "https://github.com/JoshuaSkootsky/doctorBadger"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.1.1",
